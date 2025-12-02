@@ -49,6 +49,10 @@ ADD COLUMN contract_end_date DATE AFTER contract_file;
 ALTER TABLE employees
 ADD COLUMN branch_id INT NULL AFTER department;
 
+ALTER TABLE employees
+ADD COLUMN employment_status VARCHAR(50) NULL AFTER contract_end_date,
+ADD COLUMN employment_type VARCHAR(50) NULL AFTER employment_status;
+
 INSERT INTO users (username, password, full_name)
 VALUES ('admin', '$2y$10$1/zeyFzWzmELhAea1GJikO1Mev4MJL2r/NbFb6cHNzPaLsGKziC96', 'Administrator');
 
