@@ -46,8 +46,20 @@ ALTER TABLE employees
 ADD COLUMN contract_file VARCHAR(255) AFTER image,
 ADD COLUMN contract_end_date DATE AFTER contract_file;
 
+ALTER TABLE employees
+ADD COLUMN branch_id INT NULL AFTER department;
+
 INSERT INTO users (username, password, full_name)
 VALUES ('admin', '$2y$10$1/zeyFzWzmELhAea1GJikO1Mev4MJL2r/NbFb6cHNzPaLsGKziC96', 'Administrator');
+
+CREATE TABLE branches (
+    branch_id INT AUTO_INCREMENT PRIMARY KEY,
+    branch_name VARCHAR(255) NOT NULL,
+    address TEXT,
+    contact_number VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
 CREATE TABLE leaves (
     leave_id INT AUTO_INCREMENT PRIMARY KEY,
